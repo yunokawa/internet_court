@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>罪状詳細 | インターネット裁判所</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="container">
+    <div class="topbar">
+      <div class="brand">
+        <h1>罪状詳細</h1>
+        <p class="subtitle"><a class="link" href="/">← 一覧へ戻る</a></p>
+      </div>
+    </div>
+
+    <div class="detail-card">
+      <h2 id="crimeTitle">読み込み中...</h2>
+      <div id="crimeMeta" class="detail-meta"></div>
+      <div id="voteStatus" class="detail-status"></div>
+      <div id="verdictBox" class="verdict-box"></div>
+    </div>
+
+    <div class="detail-card">
+      <h3>💬 禊コメント</h3>
+      <div class="comment-box">
+        <input id="commentInput" type="text" placeholder="罰 or 一言（例：1日SNS断ち刑）" />
+        <button id="submitComment">書き込む</button>
+      </div>
+      <div id="commentList" class="comment-list"></div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

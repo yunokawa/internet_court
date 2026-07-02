@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>インターネット裁判所</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="container">
+    <div class="topbar">
+      <div class="brand">
+        <h1>インターネット裁判所</h1>
+        <p class="subtitle">告白から1日で判決。世論×ルーレット。</p>
+      </div>
+      <button id="rankingBtn" class="ranking-btn">🏆 ランキング</button>
+    </div>
+
+    <div id="form">
+      <input id="nameInput" type="text" placeholder="被告名（任意）" />
+      <input id="crimeInput" type="text" placeholder="あなたの罪を告白してください" />
+      <button id="submitBtn">告白する</button>
+    </div>
+
+    <div id="crimeList"></div>
+  </div>
+
+  <!-- ランキング -->
+  <aside id="rankingPanel" class="ranking-panel">
+    <div class="ranking-header">
+      <div class="ranking-title">🏆 罪状ランキング</div>
+      <button id="rankingClose" class="ranking-close">✕</button>
+    </div>
+
+    <div class="ranking-tabs">
+      <button id="tabParticipation" class="tab active">参加者が多い</button>
+      <button id="tabSympathy" class="tab">心中お察しが多い</button>
+    </div>
+
+    <div class="ranking-hint">
+      <div>参加者 = 🔥有罪 or 🕊️無罪に投票した人数</div>
+      <div>心中お察し = 🙏 を押した人数</div>
+      <div class="ranking-note">クリックで詳細へ</div>
+    </div>
+
+    <div id="rankingList" class="ranking-list"></div>
+  </aside>
+
+  <div id="backdrop" class="backdrop"></div>
+
+  <!-- 🎰 ルーレットオーバーレイ -->
+  <div id="rouletteOverlay" class="roulette-overlay">
+    <div class="roulette-modal">
+      <div class="roulette-head">
+        <div class="roulette-title">🎰 判決ルーレット</div>
+        <button id="rouletteClose" class="roulette-close">✕</button>
+      </div>
+
+      <div id="rouletteMeta" class="roulette-meta"></div>
+
+      <div class="roulette-stage">
+        <div class="roulette-pointer"></div>
+        <div id="rouletteWheel" class="roulette-wheel"></div>
+        <div class="roulette-center">JUDGE</div>
+      </div>
+
+      <div id="rouletteResult" class="roulette-result"></div>
+
+      <div class="roulette-actions">
+        <button id="rouletteSpin" class="roulette-spin">🎰 ルーレットスタート</button>
+        <button id="rouletteReplay" class="roulette-replay">🔁 もう一回演出を見る</button>
+      </div>
+
+      <div class="roulette-note">※結果は罪ごとに確定済み（演出として回しています）</div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
